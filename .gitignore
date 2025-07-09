@@ -1,0 +1,6 @@
+datalad_api/_version.py
+dist/
+.coverage
+docs/generated
+docs/_build
+*.swp
