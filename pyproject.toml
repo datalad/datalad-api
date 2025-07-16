@@ -44,8 +44,8 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = [
-  "datalad-core",
   "git-annex",
+  "click",
 ]
 
 [tool.hatch.metadata]
