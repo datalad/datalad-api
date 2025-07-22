@@ -1,11 +1,12 @@
-import click
 from functools import partial
 from inspect import signature
 
+import click
+
 from datalad_lib.cmd_demo import demo_command
 from datalad_lib.cmd_demo_w_ctx import demo_command_w_ctx
-from datalad_lib.cmdgrp_root import root_cmd_group
 from datalad_lib.cmdgrp_color import color_cmd_group
+from datalad_lib.cmdgrp_root import root_cmd_group
 
 
 def grp_handler(fx, ctx, *args, **kwargs):

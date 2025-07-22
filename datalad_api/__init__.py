@@ -14,12 +14,10 @@ from inspect import signature
 # TODO: Demo command parameter validation
 # TODO: Demo command group parameter validation
 # TODO: Make command load lazily
-
-
 from datalad_lib.cmd_demo import demo_command
 from datalad_lib.cmd_demo_w_ctx import demo_command_w_ctx
-from datalad_lib.cmdgrp_root import root_cmd_group
 from datalad_lib.cmdgrp_color import color_cmd_group
+from datalad_lib.cmdgrp_root import root_cmd_group
 
 
 class CmdGroup:

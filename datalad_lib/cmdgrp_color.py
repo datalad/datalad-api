@@ -1,4 +1,4 @@
-from . import RootCmdGroupContext, ColorCmdGroupContext
+from . import ColorCmdGroupContext, RootCmdGroupContext
 
 
 def color_cmd_group(
