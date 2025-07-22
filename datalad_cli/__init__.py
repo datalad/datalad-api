@@ -32,7 +32,29 @@ def cmd_handler(fx, ctx, *args, **kwargs):
     print(f"RET: {ret!r}")
 
 
+def decorate_cmd(fx):
+    params = signature(fx).parameters
+    fx = partial(cmd_handler, fx)
+    for p in params.values():
+        if p.name == 'ctx':
+            fx = click.pass_context(fx)
+            continue
+        if p.default is p.empty:
+            fx = click.argument(
+                p.name,
+            )(fx)
+        else:
+            fx = click.option(
+                f'--{p.name}',
+                default=p.default,
+            )(fx)
+
+    return fx
+
+
 if __name__ == '__main__':
+    # TODO read argument spec from command implementations
+    # or rather their decorated interfaces
     root_group = click.group(
         name='root',
     )(click.pass_context(
@@ -51,7 +73,6 @@ if __name__ == '__main__':
     ))
     color_group.command(
         name='democtx',
-    )(click.pass_context(
-        partial(cmd_handler, demo_command_w_ctx),
-    ))
+    )(decorate_cmd(demo_command_w_ctx))
+
     root_group()

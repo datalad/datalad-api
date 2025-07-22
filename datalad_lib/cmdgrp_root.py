@@ -5,7 +5,7 @@ def root_cmd_group(
     cls,
     version: bool = False,
     log_level: int = 10,
-):  # noqa: FBT001, FBT002
+):
     """A specific command group
 
     Implementation requires a definition of the group-specific API

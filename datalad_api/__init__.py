@@ -11,7 +11,6 @@ __all__ = [
 from functools import partial
 from inspect import signature
 
-# TODO: Demo command parameter validation
 # TODO: Demo command group parameter validation
 # TODO: Make command load lazily
 from datalad_lib.cmd_demo import demo_command
