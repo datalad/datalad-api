@@ -125,16 +125,22 @@ class LazyGroup(click.Group):
         group = any(e.name.startswith(f'{cmd_name}:')
                     for e in entry_points(group='datalad.api'))
 
-        fx = add_click_api(ep.load(), group=group)
+        fx = ep.load()
+        # extract docstring now before the implementation is wrapped
+        # with decorators
+        help = fx.__doc__
+        fx = add_click_api(fx, group=group)
 
         if group:
             return click.group(
                 cls=LazyGroup,
                 name=cmd_name,
+                help=help,
             )(fx)
 
         return click.command(
             name=cmd_name,
+            help=help,
         )(fx)
 
 
