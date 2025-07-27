@@ -47,6 +47,7 @@ dependencies = [
   "git-annex",
   "click",
   "datalad-core",
+  "datalad-next",
 ]
 
 [tool.hatch.metadata]
@@ -64,6 +65,14 @@ docs = [
   "sphinx",
   "sphinx_rtd_theme",
 ]
+
+[project.entry-points."datalad.api"]
+# root-group command
+demo = "datalad_lib.cmd_demo:demo_command"
+# command-group, inferred because there is a color:... entrypoint
+color = "datalad_lib.cmdgrp_color:color_cmd_group"
+# group sub-command
+"color:democtx" = "datalad_lib.cmd_demo_w_ctx:demo_command_w_ctx"
 
 [tool.hatch.version]
 source = "vcs"

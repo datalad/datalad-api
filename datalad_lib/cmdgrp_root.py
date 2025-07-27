@@ -25,7 +25,9 @@ def root_cmd_group(
 
     # all about subcommands from here
     obj = super(cls, cls).__new__(cls)
-    obj.ctx = RootCmdGroupContext(log_level)
+    obj.ctx = RootCmdGroupContext(
+        log_level=log_level,
+    )
     return obj
 
 
